@@ -35,24 +35,87 @@ This repository was forked from [pulse00/scala](https://index.docker.io/u/pulse0
 
 
 
-## Installation
+## Installation on Docker-friendly OS
 
-1. Install [Docker](https://www.docker.io/).
+If you're using a Docker-friendly OS (e.g., CoreOS, Debian, Ubuntu):
 
-2. Download [trusted build](https://index.docker.io/u/williamyeh/docker-scala/) from public [Docker Registry](https://index.docker.io/): `docker pull williamyeh/docker-scala`
+1. Install [Docker](https://www.docker.io/), if necessary.
+
+2. Download [trusted build](https://index.docker.io/u/williamyeh/docker-scala/) from public [Docker Registry](https://index.docker.io/):
+
+   ```
+   $ docker pull williamyeh/docker-scala`
+   ```
 
    (alternatively, you can build an image from Dockerfile: `docker build -t="williamyeh/docker-scala" github.com/William-Yeh/docker-scala`)
+
+
+
+## Installation on Vagrant
+
+
+### For impatient
+
+1. Copy the `Vagrantfile` of this project to your working directory.
+
+2. Initialize and ssh into the Vagrant box:
+
+   ```
+   $ vagrant up
+   $ vagrant ssh
+   ```
+
+
+
+
+### "Docker" provider
+
+If you'd like to use the [Docker provider feature](https://www.vagrantup.com/blog/feature-preview-vagrant-1-6-docker-dev-environments.html) introduced since Vagrant 1.6:
+
+1. Place a `Vagrantfile` in your working directory like this:
+
+   ```
+   VAGRANTFILE_API_VERSION = "2"
+
+   Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+       config.vm.define "docker-scala" do |v|
+           v.vm.provider "docker" do |d|
+               d.image = "williamyeh/docker-scala"
+           end
+       end
+   end
+   ```
+
+
+2. Initialize the Docker container (with an implicit Vagrant box such as [mitchellh/boot2docker](https://github.com/mitchellh/boot2docker-vagrant-box), if necessary):
+
+   ```
+   $ vagrant up --provider=docker
+   ``` 
+
+3. See if Docker runs successfully:
+
+   ```
+   $ vagrant docker-logs
+   ```
+
+
+Vagrant 1.6 has also introduced Docker-related commands (e.g., `docker-logs` & `docker-run`). Consult the [official document](https://docs.vagrantup.com/v2/docker/commands.html) for more details.
+
+
+
+
 
 
 ## Usage
 
 ```
-docker run -i -t williamyeh/docker-scala bash
+$ docker run -i -t williamyeh/docker-scala bash
 ```
 
 
 #### Run `scala`
 
 ```
-docker run -i -rm -t williamyeh/docker-scala
+$ docker run -i -rm -t williamyeh/docker-scala
 ```
