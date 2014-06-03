@@ -21,7 +21,7 @@ This docker image contains the following software stack:
 
 - Scala: 2.10.4
 
-- Sbt: 0.13.1
+- Sbt: 0.13.5
 
 
 ### History
