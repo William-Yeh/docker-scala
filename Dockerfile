@@ -32,15 +32,12 @@ RUN apt-get update
 # 1) first install prerequisites
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes openjdk-6-jre libjansi-java
 # 2) finally install Scala 2.10.4
-RUN wget http://www.scala-lang.org/files/archive/scala-2.10.4.deb 
+RUN wget http://www.scala-lang.org/files/archive/scala-2.10.4.deb
 RUN dpkg -i scala-2.10.4.deb
 RUN rm -f scala-2.10.4.deb
 
 
 # install sbt 0.13.5
-# 1) first install old sbt 0.11.3 from typesafe (old one but comes with all dependencies)
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes sbt
-# 2) now that we have sbt we can upgrade it to 0.13.5
 RUN wget http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb
 RUN dpkg -i sbt-0.13.5.deb
 RUN rm -f sbt*.deb
@@ -54,14 +51,18 @@ RUN apt-get clean
 
 
 
+# create an empty sbt project;
+# then fetch all sbt jars from Maven repo so that your sbt will be ready to be used when you launch the image
+RUN mkdir -p    /tmp/test-sbt
+ADD test-sbt.sh /tmp/test-sbt/
+RUN cd /tmp/test-sbt  &&  ./test-sbt.sh
+RUN rmdir -rf /tmp/test-sbt
+
 # print versions
 RUN java -version
 
 # scala -version returns code 1 instead of 0 thus "|| true"
 RUN scala -version || true
-
-# fetches all sbt jars from Maven repo so that your sbt will be ready to be used when you launch the image
-RUN sbt --version
 
 
 
