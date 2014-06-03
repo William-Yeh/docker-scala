@@ -6,7 +6,7 @@
 #              - https://index.docker.io/u/pulse00/scala/
 #              - https://github.com/dubture-dockerfiles/scala
 #
-# Version     0.1
+# Version     0.2
 
 FROM pulse00/java
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
@@ -36,13 +36,15 @@ RUN wget http://www.scala-lang.org/files/archive/scala-2.10.4.deb
 RUN dpkg -i scala-2.10.4.deb
 RUN rm -f scala-2.10.4.deb
 
-# install sbt 0.13.1
+
+# install sbt 0.13.5
 # 1) first install old sbt 0.11.3 from typesafe (old one but comes with all dependencies)
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes sbt
-# 2) now that we have sbt we can upgrade it to 0.13.1
-RUN wget http://repo.scala-sbt.org/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.13.1/sbt.deb
-RUN dpkg -i sbt.deb
-RUN rm -f sbt.deb
+# 2) now that we have sbt we can upgrade it to 0.13.5
+RUN wget http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb
+RUN dpkg -i sbt-0.13.5.deb
+RUN rm -f sbt*.deb
+
 
 # Set java 7 as default
 RUN update-alternatives --set java  /usr/lib/jvm/java-7-oracle/jre/bin/java
