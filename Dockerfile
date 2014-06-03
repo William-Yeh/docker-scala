@@ -56,7 +56,7 @@ RUN apt-get clean
 RUN mkdir -p    /tmp/test-sbt
 ADD test-sbt.sh /tmp/test-sbt/
 RUN cd /tmp/test-sbt  &&  ./test-sbt.sh
-RUN rmdir -rf /tmp/test-sbt
+RUN rm -rf /tmp/test-sbt
 
 # print versions
 RUN java -version
