@@ -44,7 +44,7 @@ If you're using a Docker-friendly OS (e.g., CoreOS, Debian, Ubuntu):
 2. Download [trusted build](https://index.docker.io/u/williamyeh/docker-scala/) from public [Docker Registry](https://index.docker.io/):
 
    ```
-   $ docker pull williamyeh/docker-scala`
+   $ docker pull williamyeh/docker-scala
    ```
 
    (alternatively, you can build an image from Dockerfile: `docker build -t="williamyeh/docker-scala" github.com/William-Yeh/docker-scala`)
@@ -54,7 +54,7 @@ If you're using a Docker-friendly OS (e.g., CoreOS, Debian, Ubuntu):
 ## Installation on Vagrant
 
 
-### For impatient
+### For the impatient
 
 1. Copy the `Vagrantfile` of this project to your working directory.
 
