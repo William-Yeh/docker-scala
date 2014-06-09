@@ -15,23 +15,27 @@ This repository contains **Dockerfile** of [Java](https://www.java.com/) and [Sc
 
 This docker image contains the following software stack:
 
-- OS:   Ubuntu 13.10 (built from [stackbrew/ubuntu:13.10](https://index.docker.io/u/stackbrew/ubuntu/)).
+- OS: Debian jessie.
 
-- Java: Oracle JDK 1.7.0_55-b13
+- Java: Oracle JDK 1.7.0_60
 
 - Scala: 2.10.4
 
 - Sbt: 0.13.5
 
 
-### History
-
-This repository was forked from [pulse00/scala](https://index.docker.io/u/pulse00/scala/).
-
 
 ### Dependencies
 
-* [pulse00/java](https://github.com/dubture-dockerfiles/java), which in turns [stackbrew/ubuntu:13.10](https://index.docker.io/u/stackbrew/ubuntu/).
+* [williamyeh/docker-java7](https://github.com/William-Yeh/docker-java7)
+
+
+### History
+
+* 0.3 - Change the Java dependency from [pulse00/java](https://github.com/dubture-dockerfiles/java) to [williamyeh/docker-java7](https://github.com/William-Yeh/docker-java7).
+
+* 0.2 - This repository was forked from [pulse00/scala](https://index.docker.io/u/pulse00/scala/).
+
 
 
 

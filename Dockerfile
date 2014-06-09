@@ -6,16 +6,13 @@
 #              - https://index.docker.io/u/pulse00/scala/
 #              - https://github.com/dubture-dockerfiles/scala
 #
-# Version     0.2
+# Version     0.3
 
-FROM pulse00/java
+FROM williamyeh/docker-java7
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
-# upgrade Oracle JDK 1.7.0 to latest revision, if any
-RUN apt-get update  &&  apt-get -y upgrade
-
 # install add-apt-repository tool
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes software-properties-common
+#####RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes software-properties-common
 
 # install wget for downloading files
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes wget
