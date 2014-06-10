@@ -3,9 +3,9 @@ Docker-Scala
 
 ## Summary
 
-Repository name in Docker Index: **[williamyeh/docker-scala](https://index.docker.io/u/williamyeh/docker-scala/)**
+Repository name in Docker Hub: **[williamyeh/docker-scala](https://registry.hub.docker.com/u/williamyeh/docker-scala/)**
 
-This repository contains **Dockerfile** of [Java](https://www.java.com/) and [Scala](http://www.scala-lang.org) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/williamyeh/docker-scala/) published to the public [Docker Registry](https://index.docker.io/).
+This repository contains **Dockerfile** of [Java](https://www.java.com/) and [Scala](http://www.scala-lang.org) for [Docker](http://www.docker.com/)'s [trusted build](https://registry.hub.docker.com/u/williamyeh/docker-scala/) published to the public [Docker Hub](https://registry.hub.docker.com/).
 
 
 
@@ -34,7 +34,7 @@ This docker image contains the following software stack:
 
 * 0.3 - Change the Java dependency from [pulse00/java](https://github.com/dubture-dockerfiles/java) to [williamyeh/docker-java7](https://github.com/William-Yeh/docker-java7).
 
-* 0.2 - This repository was forked from [pulse00/scala](https://index.docker.io/u/pulse00/scala/).
+* 0.2 - This repository was forked from [pulse00/scala](https://registry.hub.docker.com/u/pulse00/scala/).
 
 
 
@@ -43,9 +43,9 @@ This docker image contains the following software stack:
 
 If you're using a Docker-friendly OS (e.g., CoreOS, Debian, Ubuntu):
 
-1. Install [Docker](https://www.docker.io/), if necessary.
+1. Install [Docker](http://www.docker.com/), if necessary.
 
-2. Download [trusted build](https://index.docker.io/u/williamyeh/docker-scala/) from public [Docker Registry](https://index.docker.io/):
+2. Download [trusted build](https://registry.hub.docker.com/u/williamyeh/docker-scala/) from public [Docker Hub](https://registry.hub.docker.com/):
 
    ```
    $ docker pull williamyeh/docker-scala
