@@ -1,4 +1,4 @@
-# Scala and sbt for Ubuntu 13.10
+# Scala and sbt on Java 7
 #
 # URL: https://github.com/William-Yeh/docker-scala
 #
@@ -6,45 +6,33 @@
 #              - https://index.docker.io/u/pulse00/scala/
 #              - https://github.com/dubture-dockerfiles/scala
 #
-# Version     0.3
+# Version     0.4
 
 FROM williamyeh/docker-java7
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
-# install add-apt-repository tool
-#####RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes software-properties-common
+
+ENV SCALA_TARBALL http://www.scala-lang.org/files/archive/scala-2.10.4.deb
+ENV SBT_TARBALL   http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb
+
 
 # install wget for downloading files
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes wget
 
+
 # Typesafe repo (contains old versions but they have all dependencies we need later on)
-RUN wget http://apt.typesafe.com/repo-deb-build-0002.deb
-RUN dpkg -i repo-deb-build-0002.deb
-RUN rm -f repo-deb-build-0002.deb
+RUN \
+    wget http://apt.typesafe.com/repo-deb-build-0002.deb  && \
+    dpkg -i repo-deb-build-0002.deb  && \
+    apt-get update
 
-# update apt repositories
-RUN apt-get update
-
-# install Scala 2.10.4, requires OpenJDK 1.6
-# 1) first install prerequisites
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes openjdk-6-jre libjansi-java
-# 2) finally install Scala 2.10.4
-RUN wget http://www.scala-lang.org/files/archive/scala-2.10.4.deb
-RUN dpkg -i scala-2.10.4.deb
-RUN rm -f scala-2.10.4.deb
-
-
-# install sbt 0.13.5
-RUN wget http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb
-RUN dpkg -i sbt-0.13.5.deb
-RUN rm -f sbt*.deb
-
-
-# Set java 7 as default
-RUN update-alternatives --set java  /usr/lib/jvm/java-7-oracle/jre/bin/java
-
-# Clean up /var/cache/apt/archives/*
-RUN apt-get clean
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y --force-yes oracle-java7-installer libjansi-java  && \
+    wget $SCALA_TARBALL  && \
+    wget $SBT_TARBALL    && \
+    dpkg -i scala-*.deb  sbt-*.deb  && \
+    rm -f *.deb  && \
+    apt-get clean
 
 
 
