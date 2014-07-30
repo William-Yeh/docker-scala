@@ -8,29 +8,26 @@
 #
 # Version     0.4
 
-FROM williamyeh/docker-java7
+FROM williamyeh/java7
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
 
-ENV SCALA_TARBALL http://www.scala-lang.org/files/archive/scala-2.11.2.deb
+ENV SCALA_TARBALL http://www.scala-lang.org/files/archive/scala-2.10.4.deb
 ENV SBT_TARBALL   http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb
 
 
-# install wget for downloading files
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes wget
-
-
-# Typesafe repo (contains old versions but they have all dependencies we need later on)
-RUN \
+# install from Typesafe repo (contains old versions but they have all dependencies we need later on)
+RUN DEBIAN_FRONTEND=noninteractive  && \
+    apt-get install -y --force-yes wget  && \
     wget http://apt.typesafe.com/repo-deb-build-0002.deb  && \
     dpkg -i repo-deb-build-0002.deb  && \
-    apt-get update
-
-RUN DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y --force-yes oracle-java7-installer libjansi-java  && \
+    apt-get update  && \
+    \
+    apt-get install -y --force-yes libjansi-java  && \
     wget $SCALA_TARBALL  && \
     wget $SBT_TARBALL    && \
     dpkg -i scala-*.deb  sbt-*.deb  && \
+    \
     rm -f *.deb  && \
     apt-get clean
 
@@ -38,10 +35,10 @@ RUN DEBIAN_FRONTEND=noninteractive \
 
 # create an empty sbt project;
 # then fetch all sbt jars from Maven repo so that your sbt will be ready to be used when you launch the image
-RUN mkdir -p    /tmp/test-sbt
-ADD test-sbt.sh /tmp/test-sbt/
-RUN cd /tmp/test-sbt  &&  ./test-sbt.sh
-RUN rm -rf /tmp/test-sbt
+COPY test-sbt.sh /tmp/
+RUN cd /tmp  && \
+    ./test-sbt.sh  && \
+    rm -rf *
 
 # print versions
 RUN java -version

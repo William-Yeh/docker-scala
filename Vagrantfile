@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 #
 # provision script; pull Docker image
 #
-docker_image = "williamyeh/docker-scala"
+docker_image = "williamyeh/scala"
 $script = <<SCRIPT
 echo Downloading Docker image: \'#{docker_image}\'...
 echo This may take minutes...
