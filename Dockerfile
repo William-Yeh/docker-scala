@@ -12,7 +12,7 @@ FROM williamyeh/docker-java7
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
 
-ENV SCALA_TARBALL http://www.scala-lang.org/files/archive/scala-2.10.4.deb
+ENV SCALA_TARBALL http://www.scala-lang.org/files/archive/scala-2.11.2.deb
 ENV SBT_TARBALL   http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb
 
 

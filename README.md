@@ -17,7 +17,7 @@ This docker image contains the following software stack:
 
 - Java: Oracle JDK 1.7.0
 
-- Scala: 2.10.4
+- Scala: 2.11.2, 2.10.4 (see [tag list](https://registry.hub.docker.com/u/williamyeh/docker-scala/tags/manage/) for details)
 
 - Sbt: 0.13.5
 
@@ -30,6 +30,8 @@ This docker image contains the following software stack:
 
 ### History
 
+* 0.5 - Support version tags.
+
 * 0.4 - Fix APT dependency: openjdk-6-jre --> oracle-java7-installer.
 
 * 0.3 - Change the Java dependency from [pulse00/java](https://github.com/dubture-dockerfiles/java) to [williamyeh/docker-java7](https://github.com/William-Yeh/docker-java7).
@@ -41,19 +43,24 @@ This docker image contains the following software stack:
 
 ## Installation
 
+Latest version:
+
    ```
    $ docker pull williamyeh/docker-scala
    ```
 
+Specific version:
+
+   ```
+   $ docker pull williamyeh/docker-scala:2.11.2
+   ```
+
+
+
 ## Usage
 
-```
-$ docker run -i -t williamyeh/docker-scala bash
-```
-
-
-#### Run `scala`
+#### Run `scala` REPL
 
 ```
-$ docker run -i -rm -t williamyeh/docker-scala
+$ docker run -it --rm williamyeh/docker-scala
 ```
