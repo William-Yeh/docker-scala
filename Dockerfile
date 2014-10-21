@@ -17,16 +17,19 @@ ENV SBT_TARBALL   http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb
 
 
 # install from Typesafe repo (contains old versions but they have all dependencies we need later on)
-RUN DEBIAN_FRONTEND=noninteractive  && \
-    apt-get install -y --force-yes wget  && \
+RUN DEBIAN_FRONTEND=noninteractive \
+        apt-get install -y --force-yes wget  && \
     wget http://apt.typesafe.com/repo-deb-build-0002.deb  && \
     dpkg -i repo-deb-build-0002.deb  && \
     apt-get update  && \
     \
-    apt-get install -y --force-yes libjansi-java  && \
+    \
+    DEBIAN_FRONTEND=noninteractive \
+        apt-get install -y --force-yes libjansi-java  && \
     wget $SCALA_TARBALL  && \
     wget $SBT_TARBALL    && \
     dpkg -i scala-*.deb  sbt-*.deb  && \
+    \
     \
     rm -f *.deb  && \
     apt-get clean
