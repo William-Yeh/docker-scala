@@ -19,7 +19,7 @@ This docker image contains the following software stack:
 
 - Scala: 2.11.2, 2.10.4 (see [tag list](https://registry.hub.docker.com/u/williamyeh/scala/tags/manage/) for details)
 
-- Sbt: 0.13.5
+- Sbt: 0.13.6
 
 
 

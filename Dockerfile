@@ -6,14 +6,14 @@
 #              - https://index.docker.io/u/pulse00/scala/
 #              - https://github.com/dubture-dockerfiles/scala
 #
-# Version     0.4
+# Version     0.5
 
 FROM williamyeh/java7
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
 
 ENV SCALA_TARBALL http://www.scala-lang.org/files/archive/scala-2.11.2.deb
-ENV SBT_TARBALL   http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb
+ENV SBT_TARBALL   http://dl.bintray.com/sbt/debian/sbt-0.13.6.deb
 
 
 # install from Typesafe repo (contains old versions but they have all dependencies we need later on)
@@ -32,6 +32,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     \
     \
     rm -f *.deb  && \
+    apt-get remove -y --auto-remove wget  && \
     apt-get clean
 
 
