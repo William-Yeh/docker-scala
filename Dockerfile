@@ -32,7 +32,6 @@ RUN DEBIAN_FRONTEND=noninteractive \
     \
     \
     rm -f *.deb  && \
-    apt-get remove -y --auto-remove wget  && \
     apt-get clean
 
 
