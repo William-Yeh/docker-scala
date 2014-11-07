@@ -17,7 +17,7 @@ This docker image contains the following software stack:
 
 - Java: Oracle JDK 1.7.0
 
-- Scala: 2.11.2, 2.10.4 (see [tag list](https://registry.hub.docker.com/u/williamyeh/scala/tags/manage/) for details)
+- Scala: 2.11.4, 2.11.2, 2.10.4 (see [tag list](https://registry.hub.docker.com/u/williamyeh/scala/tags/manage/) for details)
 
 - Sbt: 0.13.6
 
@@ -59,7 +59,7 @@ All versions:
 Specific version:
 
    ```
-   $ docker pull williamyeh/scala:2.11.2
+   $ docker pull williamyeh/scala:2.11.4
    ```
 
 

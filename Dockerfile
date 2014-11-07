@@ -12,7 +12,7 @@ FROM williamyeh/java7
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
 
-ENV SCALA_TARBALL http://www.scala-lang.org/files/archive/scala-2.11.2.deb
+ENV SCALA_TARBALL http://www.scala-lang.org/files/archive/scala-2.11.4.deb
 ENV SBT_TARBALL   http://dl.bintray.com/sbt/debian/sbt-0.13.6.deb
 
 
@@ -27,7 +27,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     DEBIAN_FRONTEND=noninteractive \
         apt-get install -y --force-yes libjansi-java  && \
     wget $SCALA_TARBALL  && \
-    wget $SBT_TARBALL    && \
+    wget --max-redirect=50  $SBT_TARBALL    && \
     dpkg -i scala-*.deb  sbt-*.deb  && \
     \
     \
