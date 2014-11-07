@@ -6,34 +6,46 @@
 #              - https://index.docker.io/u/pulse00/scala/
 #              - https://github.com/dubture-dockerfiles/scala
 #
-# Version     0.5
+# Version     0.6
 
 FROM williamyeh/java7
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
 
 ENV SCALA_TARBALL http://www.scala-lang.org/files/archive/scala-2.11.4.deb
-ENV SBT_TARBALL   http://dl.bintray.com/sbt/debian/sbt-0.13.6.deb
+ENV SBT_JAR       https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.6/sbt-launch.jar
 
 
-# install from Typesafe repo (contains old versions but they have all dependencies we need later on)
-RUN DEBIAN_FRONTEND=noninteractive \
+
+RUN \
+    echo "===> install from Typesafe repo (contains old versions but they have all dependencies we need later on)"  && \
+    DEBIAN_FRONTEND=noninteractive \
         apt-get install -y --force-yes wget  && \
     wget http://apt.typesafe.com/repo-deb-build-0002.deb  && \
     dpkg -i repo-deb-build-0002.deb  && \
     apt-get update  && \
     \
     \
+    \
+    echo "===> install Scala"  && \
     DEBIAN_FRONTEND=noninteractive \
         apt-get install -y --force-yes libjansi-java  && \
-    wget $SCALA_TARBALL  && \
-    wget --max-redirect=50  $SBT_TARBALL    && \
-    dpkg -i scala-*.deb  sbt-*.deb  && \
+    wget -nv $SCALA_TARBALL  && \
+    dpkg -i scala-*.deb   && \
     \
     \
+    \
+    echo "===> install sbt"  && \
+    wget -nv -P /usr/local/bin/  $SBT_JAR    && \
+    \
+    \
+    \
+    echo "===> clean up..."  && \
     rm -f *.deb  && \
     apt-get clean
 
+
+COPY sbt /usr/local/bin/
 
 
 # create an empty sbt project;
@@ -44,10 +56,10 @@ RUN cd /tmp  && \
     rm -rf *
 
 # print versions
-RUN java -version
+#RUN java -version
 
 # scala -version returns code 1 instead of 0 thus "|| true"
-RUN scala -version || true
+#RUN scala -version || true
 
 
 

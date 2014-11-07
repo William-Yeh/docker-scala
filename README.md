@@ -30,6 +30,8 @@ This docker image contains the following software stack:
 
 ### History
 
+* 0.6 - Install sbt manually instead of deb.
+
 * 0.5 - Support version tags.
 
 * 0.4 - Fix APT dependency: openjdk-6-jre --> oracle-java7-installer.
