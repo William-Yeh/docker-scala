@@ -42,7 +42,8 @@ RUN \
     \
     echo "===> clean up..."  && \
     rm -f *.deb  && \
-    apt-get clean
+    apt-get clean  && \
+    rm -rf /var/lib/apt/lists/*
 
 
 COPY sbt /usr/local/bin/
