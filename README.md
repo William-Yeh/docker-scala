@@ -61,7 +61,7 @@ All versions:
 Specific version:
 
    ```
-   $ docker pull williamyeh/scala:2.11.4
+   $ docker pull williamyeh/scala:2.10.4
    ```
 
 
