@@ -17,9 +17,9 @@ This docker image contains the following software stack:
 
 - Java: Oracle JDK 1.7.0
 
-- Scala: 2.11.4, 2.11.2, 2.10.4 (see [tag list](https://registry.hub.docker.com/u/williamyeh/scala/tags/manage/) for details)
+- Scala: 2.11.5, 2.11.4, 2.10.4 (see [tag list](https://registry.hub.docker.com/u/williamyeh/scala/tags/manage/) for details)
 
-- Sbt: 0.13.6
+- Sbt: 0.13.7
 
 
 
@@ -41,6 +41,11 @@ This docker image contains the following software stack:
 * 0.2 - This repository was forked from [pulse00/scala](https://registry.hub.docker.com/u/pulse00/scala/).
 
 
+## Alternatives
+
+SBT:
+
+- [errordeveloper/sbt](https://registry.hub.docker.com/u/errordeveloper/sbt/) or [nightscape/docker-sbt](https://registry.hub.docker.com/u/nightscape/docker-sbt/), if you prefer a minimalistic Oracle JDK container on top of busybox.
 
 
 ## Installation
@@ -61,7 +66,7 @@ All versions:
 Specific version:
 
    ```
-   $ docker pull williamyeh/scala:2.11.4
+   $ docker pull williamyeh/scala:2.11.5
    ```
 
 

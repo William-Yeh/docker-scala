@@ -12,8 +12,8 @@ FROM williamyeh/java7
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
 
-ENV SCALA_TARBALL http://www.scala-lang.org/files/archive/scala-2.11.4.deb
-ENV SBT_JAR       https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.6/sbt-launch.jar
+ENV SCALA_TARBALL http://www.scala-lang.org/files/archive/scala-2.11.5.deb
+ENV SBT_JAR       https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.7/sbt-launch.jar
 
 
 
