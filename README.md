@@ -13,13 +13,11 @@ This repository contains Dockerized [Java](https://www.java.com/) and [Scala](ht
 
 This docker image contains the following software stack:
 
-- OS: Debian jessie.
+- OS: Debian 8 ("Jessie").
 
 - Java: Oracle JDK 1.7.0
 
-- Scala: 2.11.4, 2.11.2, 2.10.4 (see [tag list](https://registry.hub.docker.com/u/williamyeh/scala/tags/manage/) for details)
-
-- Sbt: 0.13.6
+- Scala: 2.11.6, 2.10.4 (see [tag list](https://registry.hub.docker.com/u/williamyeh/scala/tags/manage/) for details)
 
 
 
@@ -29,6 +27,8 @@ This docker image contains the following software stack:
 
 
 ### History
+
+* 0.7 - Move sbt from this scala image to [williamyeh/sbt](https://registry.hub.docker.com/u/williamyeh/sbt/) instead.
 
 * 0.6 - Install sbt manually instead of deb.
 
@@ -40,29 +40,6 @@ This docker image contains the following software stack:
 
 * 0.2 - This repository was forked from [pulse00/scala](https://registry.hub.docker.com/u/pulse00/scala/).
 
-
-
-
-## Installation
-
-
-Latest version:
-
-   ```
-   $ docker pull williamyeh/scala:latest
-   ```
-
-All versions:
-
-   ```
-   $ docker pull williamyeh/scala
-   ```
-
-Specific version:
-
-   ```
-   $ docker pull williamyeh/scala:2.10.4
-   ```
 
 
 
