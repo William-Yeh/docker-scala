@@ -6,7 +6,7 @@
 #              - https://index.docker.io/u/pulse00/scala/
 #              - https://github.com/dubture-dockerfiles/scala
 #
-# Version     0.6
+# Version     0.7
 
 FROM williamyeh/java7
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
