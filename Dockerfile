@@ -39,8 +39,9 @@ RUN \
     \
     \
     echo "===> clean up..."  && \
-    rm -f *.deb    && \
-    apt-get clean  && \
+    rm -f *.deb                            && \
+    apt-get remove -y --auto-remove curl   && \
+    apt-get clean                          && \
     rm -rf /var/lib/apt/lists/*
 
 
